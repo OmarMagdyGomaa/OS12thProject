@@ -1,4 +1,4 @@
-### README:
+
 # Introduction
 
 This code is an implementation of the Banker's Algorithm in C# using Windows Forms. The Banker's Algorithm is a deadlock avoidance algorithm that is used to allocate resources to processes in a system. The code is divided into four classes: Form1, Entring_Max_Matrix, Allocated, Available, and Calc.
