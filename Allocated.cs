@@ -13,7 +13,7 @@ namespace OS12thProject
     public partial class Allocated : Form
     {
         public static Allocated Instance;
-        public int[,] allocation;
+        public static int[,] allocation;
 
         public Allocated()
         {
@@ -27,30 +27,39 @@ namespace OS12thProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int[,] allocation = new int[Form1.Instance.Number_Of_Processes, Form1.Instance.Number_Of_Resource];
-
-            for (int i = 0; i < Form1.Instance.Number_Of_Processes; i++)
+            allocation = new int[Form1.Number_Of_Processes, Form1.Number_Of_Resource];
+                    
+            for (int i = 0; i < Form1.Number_Of_Processes; i++)
             {
                 try
                 {
-                    Console.Write("Process " + i + ": ");
+
                     string[] input = textBox1.Text.Split(' ');
-                    for (int j = 0; j < Form1.Instance.Number_Of_Resource; j++)
+                    if (input.Length != Form1.Number_Of_Resource*Form1.Number_Of_Processes)
                     {
-                        allocation[i, j] = int.Parse(input[j]);
+                        throw new Exception("Incorrect number of resource values entered for process " + i);
+                    }
+
+                    for (int j = 0; j < Form1.Number_Of_Resource; j++)
+                    {
+                        
+                        if (!int.TryParse(input[i], out int value))
+                        {
+                            throw new Exception("Invalid input entered for process " + i + ", resource " + j);
+                        }
+                        allocation[i, j] = value;
                     }
                 }
                 catch (Exception exe)
                 {
-
                     MessageBox.Show(exe.Message);
-
+                    return;
                 }
             }
             this.Hide();
             Available page4 = new Available();
-            page4.Show();
-
+            page4.Show(this);
         }
+
     }
 }

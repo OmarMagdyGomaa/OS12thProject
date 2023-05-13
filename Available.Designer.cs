@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             button2 = new Button();
-            button1 = new Button();
             label2 = new Label();
             label1 = new Label();
             textBox1 = new TextBox();
@@ -44,15 +43,7 @@
             button2.TabIndex = 14;
             button2.Text = "Next";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(492, 178);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 13;
-            button1.Text = "ADD";
-            button1.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label2
             // 
@@ -96,7 +87,6 @@
             ClientSize = new Size(598, 450);
             Controls.Add(label3);
             Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(textBox1);
@@ -109,7 +99,6 @@
         #endregion
 
         private Button button2;
-        private Button button1;
         private Label label2;
         private Label label1;
         private TextBox textBox1;
